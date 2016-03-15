@@ -11,14 +11,17 @@ class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      bid: 750,
+      showInstant: true,
       count: props.initialCount
     };
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleBid = this.handleBid.bind(this);
   }
 
   //the key passed through context must be called "muiTheme"
   static childContextTypes = {
-    muiTheme: React.PropTypes.object,
+    muiTheme: React.PropTypes.object
   }
 
   getChildContext() {
@@ -35,24 +38,27 @@ class Landing extends React.Component {
     });
   }
 
+  handleBid(event) {
+    var valueInt = parseInt(event.target.value, 10);
+    if (isNaN(valueInt)) {
+      valueInt = 0;
+    }
+    this.setState({
+      bid: valueInt,
+      showInstant: valueInt >= 750
+    });
+  }
+
   render() {
-    const actions = [ < FlatButton label = "Reserve" secondary = {
-        true
-      }
-      onTouchTap = {
-        this.toggleModal
-      } />, < FlatButton label = "Instant lease" primary = {
-        true
-      }
-      onTouchTap = {
-        this.toggleModal
-      }
-      style = {
-        {
-          color: Theme.palette.secondary1Color
-        }
-      } />
-    ];
+    let action0 = (<FlatButton label="Reserve" secondary={true} onTouchTap={this.toggleModal}/>);
+    let action1 = (<FlatButton label="Instant lease" primary={true} onTouchTap={this.toggleModal} style={{
+      color: Theme.palette.secondary1Color
+    }}/>);
+    let action = this.state.showInstant ? action1 : action0;
+    let actionCancel = (<FlatButton label="Cancel" primary={true} onTouchTap={this.toggleModal} style={{
+      color: Theme.palette.primary3Color
+    }}/>);
+    let actions = [actionCancel,action];
 
     return (
       <div style={{
@@ -61,38 +67,41 @@ class Landing extends React.Component {
         backgroundSize: "cover"
       }}>
         <Row>
-          <Col sm="4/9"></Col>
-          <Col sm="4/9">
+          <Col xs="0" sm="0" md="4/9"></Col>
+          <Col xs="1" sm="1" md="4/9">
             <Row>
-              <Col sm="3/7">
+              <Col xs="1" sm="1" md="3/7">
                 <span className="right-aligned" id="typewriter"></span>
               </Col>
-              <Col sm="4/7">
-                <h1 className="right" id="header">513 Dryden</h1>
+              <Col xs="1" sm="1" md="4/7">
+                <h1 className="center" id="header">513 Dryden</h1>
               </Col>
             </Row>
           </Col>
-          <Col sm="1/9"></Col>
+          <Col xs="0" sm="0" md="1/9"></Col>
         </Row>
         <Row>
-          <Col sm="4/9"></Col>
-          <Col sm="4/9">
+          <Col xs="0" sm="0" md="4/9"></Col>
+          <Col xs="1" sm="1" md="4/9" className="center">
             <RaisedButton style={{
               height: "56px",
               minWidth: "120px"
             }} labelStyle={{
               letterSpacing: "0.1em",
               fontFamily: "'Montserrat', sans-serif"
-            }} className="right" onClick={this.toggleModal} label="Reserve" secondary={true}/>
+            }} className="center" onTouchTap={this.toggleModal} label="Reserve" secondary={true}/>
           </Col>
-          <Col sm="1/9"></Col>
+          <Col xs="0" sm="0" md="1/9"></Col>
         </Row>
-        <Dialog title="Leave your contact info below" actions={actions} modal={true} open={this.state.modalIsOpen || false} onRequestClose={this.toggleModal}>
+        <Dialog title="Place your bid" actions={actions} modal={true} open={this.state.modalIsOpen || false} onRequestClose={this.toggleModal}>
           <Row>
-            <Col sm="1/5">
+            <Col xs="1/2" sm="1/2" md="1/5">
               <TextField fullWidth={true} floatingLabelText="NetID" hintText="e.g. ab123" name="netid"/>
             </Col>
-            <Col sm="4/5">
+            <Col xs="1/2" sm="1/2" md="1/5">
+              <TextField value={this.state.bid} fullWidth={true} floatingLabelText="Bid" name="bid-amount" onChange={this.handleBid}/>
+            </Col>
+            <Col xs="1" sm="1" md="3/5">
               <TextField fullWidth={true} floatingLabelText="Note" name="additional-info"/>
             </Col>
           </Row>
