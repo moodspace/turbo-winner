@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Summer Housing</title>
+  <link href="https://cdn.bootcss.com/material-design-icons/2.1.3/iconfont/material-icons.css" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"> -->
+  <link rel="stylesheet" type="text/css" href="./css/all.min.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="./res/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./res/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./res/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./res/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./res/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./res/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./res/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./res/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./res/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="./res/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="./res/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="./res/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="./res/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="./res/manifest.json">
+  <link rel="mask-icon" href="./res/safari-pinned-tab.svg" color="#d45454">
+  <meta name="msapplication-TileColor" content="#c62828">
+  <meta name="msapplication-TileImage" content="./res/mstile-144x144.png">
+  <meta name="theme-color" content="#c62828">
+</head>
+
+<body style="background-color: #1177cd;">
+  <div id="top-frame"></div>
+  <div id="copyright">
+    <a href="https://www.flickr.com/photos/bakokojp/12213870563/">image: Timber Cafe Furniture by BAKOKO</a>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script type="text/javascript" src="./js/client/typed.min.js"></script>
+  <script type="text/javascript" src="./js/client/bundle.js"></script>
+  <script>
+    let activities = "enjoy summer,doing research,smoking weed,netflix and chill,taking naps,stargazing,game night,speak pig Latin,drink booze,have a PJ Party";
+    $(function() {
+      $("#typewriter").typed({
+        strings: activities.split(",").map(function(e) {
+          return e+" at";
+        }),
+        typeSpeed: 10,
+        backDelay: 500,
+        showCursor: false,
+        loop: true
+      });
+    });
+  </script>
+</body>
+
+</html>

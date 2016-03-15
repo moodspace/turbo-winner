@@ -1,0 +1,62 @@
+{
+  "name": "turbo-winner",
+  "version": "1.0.0",
+  "description": "Housing application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moodspace/turbo-winner.git"
+  },
+  "author": "Alex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moodspace/turbo-winner/issues"
+  },
+  "homepage": "https://github.com/moodspace/turbo-winner#readme",
+  "dependencies": {
+    "elemental": "^0.5.6",
+    "express": "^4.13.3",
+    "history": "^1.13.1",
+    "jquery": "^2.2.1",
+    "jwt-decode": "^1.5.1",
+    "material-ui": "^0.15.0-alpha.1",
+    "radium": "^0.16.5",
+    "react": "^0.14.7",
+    "react-addons-create-fragment": "^0.14.7",
+    "react-addons-css-transition-group": "^0.14.7",
+    "react-addons-transition-group": "^0.14.7",
+    "react-addons-update": "^0.14.7",
+    "react-avatar": "^0.5.0",
+    "react-cookie": "^0.4.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^2.0.0",
+    "react-tap-event-plugin": "^0.2.1",
+    "semver-truncate": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-less": "^3.0.5",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.8.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
