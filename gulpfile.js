@@ -59,7 +59,7 @@ gulp.task('res', function() {
 
 // Copy Server Scripts
 gulp.task('serverjs', function() {
-  return gulp.src("js/server/app.js")
+  return gulp.src("js/server/*")
     .pipe(babel(({
       presets: ['es2015']
     })))
@@ -122,8 +122,8 @@ gulp.task('watch', function() {
 
 gulp.task('production', function() {
   gulp.src(['dist/js/client/bundle.js'])
-    .pipe(replace('http://127.0.0.1:10086', 'https://glassroom.xyz'))
-    .pipe(replace('http://127.0.0.1:27942', 'https://glassroom.xyz'))
+    .pipe(replace('http://127.0.0.1:27942', 'https://moodspace.xyz/dryden'))
+    .pipe(replace("path: '/'", "path: '/dryden/'"))
     .pipe(gulp.dest('dist/js/client/production'))
     .pipe(rename('bundle.min.js'))
     .pipe(buffer())

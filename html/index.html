@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <title>Summer Housing</title>
+  <title>Summer housing | 513 Dryden Rd Ithaca | MoodSpace</title>
   <link href="https://cdn.bootcss.com/material-design-icons/2.1.3/iconfont/material-icons.css" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet"> -->
@@ -43,13 +43,69 @@
     $(function() {
       $("#typewriter").typed({
         strings: activities.split(",").map(function(e) {
-          return e+" at";
+          return e + " at";
         }),
         typeSpeed: 10,
         backDelay: 500,
         showCursor: false,
         loop: true
       });
+    });
+
+    var responsiveLayout = function() {
+      if ($(window).width() <= 768) {
+        $("#left-container").fadeOut();
+        $("#typewriter").fadeOut();
+        $("#typewriter-filler").fadeOut();
+        $("#container").css("background-color", "rgba(255,255,255,0.7)");
+      } else {
+        $("#left-container").fadeIn();
+        $("#typewriter").fadeIn();
+        $("#typewriter-filler").fadeIn();
+        $("#container").css("background-color", "transparent");
+      }
+    };
+
+    var timeout1;
+    $(document).ready(function() {
+      responsiveLayout();
+      $("#left-container").mouseover(function() {
+        clearTimeout(timeout1);
+        $(".square").fadeIn();
+      });
+      $(".square-wrapper").mouseleave(function() {
+        timeout1 = setTimeout(function() {
+          $(".square").fadeOut();
+        }, 500);
+      });
+      $(".square").mouseover(function() {
+        $(this).next().fadeIn();
+      });
+      $(".square").mouseleave(function() {
+        var timeout = setTimeout(function() {
+          $(this).fadeOut();
+          $(this).next().fadeOut();
+        }, 250);
+        $(this).next().mouseover(function() {
+          clearTimeout(timeout);
+        });
+      });
+      $(".square-text").mouseleave(function() {
+        var timeout = setTimeout(function() {
+          $(this).fadeOut();
+          $(this).prev().fadeOut();
+        }, 250);
+        $(this).prev().mouseover(function() {
+          clearTimeout(timeout);
+        });
+      });
+      $(".square-wrapper").mouseleave(function() {
+        $(this).children().fadeOut();
+      });
+    });
+
+    $(window).resize(function() {
+      responsiveLayout();
     });
   </script>
 </body>

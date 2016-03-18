@@ -8,9 +8,9 @@ module.exports = {
   zIndex: zIndex,
   fontFamily: 'Roboto, sans-serif',
   palette: {
-    primary1Color: Colors.blue500,
-    primary2Color: Colors.blue700,
-    primary3Color: Colors.lightBlack,
+    primary1Color: Colors.blueGrey900,
+    primary2Color: Colors.blueGrey700,
+    primary3Color: Colors.grey900,
     secondary1Color: Colors.red500,
     secondary2Color: Colors.red700,
     secondary3Color: Colors.amber100,

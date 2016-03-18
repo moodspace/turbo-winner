@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,300,500);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Montserrat:400,700|Roboto:400,300,500);
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   font-size: 62.5%;
@@ -64,41 +64,66 @@ hr {
 #typewriter {
   width: 100%;
 }
-#typewriter, #header {
+#typewriter,
+#header,
+#typewriter-filler {
+  transition: all 1s ease;
   width: 100%;
   white-space: nowrap;
   margin-top: 20vh;
   line-height: 20vh;
-  font-size: 1.5vw;
+  font-size: 1.5vmax;
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
 }
+#typewriter-filler {
+  width: 0;
+}
 #header {
-  font-size: 4.5vw;
+  font-size: 4.5vmax;
   font-weight: 700;
 }
-.typed-cursor{
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0% {
     opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-#copyright a, #copyright a:hover {
+#copyright a,
+#copyright a:hover {
   color: rgba(120, 120, 100, 0.75);
   text-decoration: none;
 }
@@ -108,4 +133,56 @@ hr {
   text-shadow: 1px 1px 2px rgba(150, 150, 130, 0.75);
   position: absolute;
   bottom: 0;
+}
+.square-wrapper {
+  font-family: 'Source Sans Pro', sans-serif;
+  position: relative;
+  height: 30vh;
+}
+.square,
+.square-text {
+  display: none;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,.2);
+  border: #FFF 1px solid;
+  line-height: 175%;
+}
+.square-text:hover {
+  background-color: rgba(0,0,0,.7);
+}
+.square {
+  position: absolute;
+  top: 50px;
+  width: 40px;
+  height: 40px;
+}
+#square1 {
+  left: 10vh;
+}
+#square2 {
+  left: 26vh;
+}
+#square3 {
+  left: 18vh;
+}
+.square-text {
+  text-indent: 2em;
+  text-align: justify;
+  text-justify: inter-word;
+  transition: background-color 1s ease;
+  display: none;
+  position: absolute;
+  padding: 5px 15px;
+  left: 42px;
+  top: 50px;
+  font-size: 1vmax;
+  color: #FFF;
+  max-width: 45%;
+}
+#left-container {
+  overflow: hidden;
+}
+#container {
+  height: 100vh;
+  transition: background-color 1s ease;
 }
